@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "description": "This is for eth Bytecode Optimizer",
+  "proposedName": "EthZip",
+  "source": {
+    "shasum": "vei2j0eyNwlUovbqNG8+5LWadQE0xbAxV0ADIjwk6gM=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "iconPath": "images/icon.svg",
+        "packageName": "snap-eth-zip",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "initialPermissions": {
+    "snap_dialog": {},
+    "endowment:network-access": {},
+    "endowment:ethereum-provider": {},
+    "endowment:rpc": {
+      "dapps": true,
+      "snaps": false
+    }
+  },
+  "manifestVersion": "0.1"
+}
