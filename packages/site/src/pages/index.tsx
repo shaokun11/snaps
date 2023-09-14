@@ -104,16 +104,14 @@ const ErrorMessage = styled.div`
 const Index = () => {
   const [state, dispatch] = useContext(MetaMaskContext);
 
-  // const isMetaMaskReady = isLocalSnap(defaultSnapOrigin)
-  //   ? state.isFlask
-  //   : state.snapsDetected;
-  let id = "npm:snap-eth-zip"
-  const isMetaMaskReady = true;
+  const isMetaMaskReady = isLocalSnap(defaultSnapOrigin)
+    ? state.isFlask
+    : state.snapsDetected;
+
   const handleConnectClick = async () => {
     try {
-      
-      await connectSnap(id);
-      const installedSnap = await getSnap(id);
+      await connectSnap();
+      const installedSnap = await getSnap();
 
       dispatch({
         type: MetamaskActions.SetInstalled,
@@ -127,9 +125,7 @@ const Index = () => {
 
   const handleSendHelloClick = async () => {
     try {
-     
-      let res = await sendHello(id);
-      console.error('say hello res is  ', res)
+      await sendHello();
     } catch (e) {
       console.error(e);
       dispatch({ type: MetamaskActions.SetError, payload: e });

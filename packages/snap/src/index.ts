@@ -14,9 +14,11 @@ function getProvider() {
 }
 
 async function getGasPrice() {
-  let provider = getProvider()
-  let data = await provider.getFeeData()
-  return data.gasPrice!!
+  // let provider = getProvider()
+  // let data = await provider.getFeeData()
+  // return data.gasPrice!!
+  // now we only support sepolia, so fixed it
+  return 3 * 1e9
 }
 
 async function estmateGas(bytecode: string) {
@@ -30,7 +32,8 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
   switch (request.method) {
     case 'check_bytecode':
       let gasPrice = await getGasPrice()
-      let { bytecode, newBytecode }: any = request.params
+      let params: any = request.params
+      let { bytecode, newBytecode }: any = params
       let gas = await estmateGas(bytecode)
       let feeBefore = ethers.formatEther((ethers.toBigInt(gasPrice) * ethers.toBigInt(gas)).toString())
       gas = await estmateGas(newBytecode)
@@ -40,6 +43,8 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
       const per = (a: number, b: number) => {
         return ((a - b) * 100 / a).toFixed(2) + "%"
       }
+      const name = params.name || "Tether USD"
+      const symbol = params.symbol || "USDT"
       return snap.request({
         method: 'snap_dialog',
         params: {
@@ -47,8 +52,12 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
           content: panel([
             heading("EthZip Report"),
             divider(),
+            text(`Contract Type: ERC20`),
+            text(`Contract Name: ${name}`),
+            text(`Contract Symbol: ${symbol}`),
+            divider(),
             text(`Original Contract Size: ${bytecode.length / 2} bytes`),
-            text(`Original Depoly fee: ${fb} ETH `),
+            text(`Original Depoly Fee: ${fb} ETH `),
             divider(),
             text(`Contract Size:**${newBytecode.length / 2} bytes**`),
             text(`Compressed Size:**${per(bytecode.length, newBytecode.length)}**`),
@@ -57,7 +66,20 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
           ]),
         },
       });
-
+    case 'hello':
+      return snap.request({
+        method: 'snap_dialog',
+        params: {
+          type: 'confirmation',
+          content: panel([
+            text(`Hello, **${origin}**!`),
+            text('This custom confirmation is just for display purposes.'),
+            text(
+              'But you can edit the snap source code to make it do something, if you want to!',
+            ),
+          ]),
+        },
+      });
     default:
       throw new Error('Method not found.');
   }

@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "This is for eth Bytecode Optimizer",
   "proposedName": "EthZip",
   "source": {
-    "shasum": "vei2j0eyNwlUovbqNG8+5LWadQE0xbAxV0ADIjwk6gM=",
+    "shasum": "GYxSgKK1kV0o8p7esJJZpkOKa3c3cqgKf1F6gaqG/pk=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",

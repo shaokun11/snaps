@@ -1,6 +1,6 @@
 {
   "name": "snap-eth-zip",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "This is for eth Bytecode Optimizer",
   "license": "(MIT-0 OR Apache-2.0)",
   "main": "src/index.ts",
