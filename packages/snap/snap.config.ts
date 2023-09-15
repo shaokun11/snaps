@@ -10,12 +10,6 @@ const config: SnapConfig = {
   polyfills: {
     buffer: true,
   },
-  environment: {
-    debug: true
-  },
-  stats: {
-    verbose: true
-  }
 };
 
 export default config;

@@ -1,7 +1,7 @@
 {
-  "name": "snap-eth-zip",
-  "version": "0.2.0",
-  "description": "This is for eth Bytecode Optimizer",
+  "name": "snap-zk-payroll",
+  "version": "0.1.0",
+  "description": "zkPayroll utilizes zero-knowledge proofs to ensure the privacy of salary disbursements and related data while maintaining verifiability and transparency. That aims to provide a solution for private salary payments.",
   "license": "(MIT-0 OR Apache-2.0)",
   "main": "src/index.ts",
   "files": [
@@ -18,7 +18,7 @@
     "lint:fix": "yarn lint:eslint --fix && yarn lint:misc --write",
     "lint:misc": "prettier '**/*.json' '**/*.md' '!CHANGELOG.md' --ignore-path .gitignore",
     "serve": "mm-snap serve",
-    "start": "mm-snap watch",
+    "start": "cross-env DEBUG=true NODE_DEBUG=true mm-snap watch",
     "test": "jest"
   },
   "dependencies": {
@@ -38,6 +38,7 @@
     "@metamask/snaps-jest": "^0.37.3-flask.1",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.26.0",

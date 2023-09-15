@@ -1,14 +1,14 @@
 {
-  "version": "0.2.0",
-  "description": "This is for eth Bytecode Optimizer",
-  "proposedName": "EthZip",
+  "version": "0.1.0",
+  "description": "zkPayroll utilizes zero-knowledge proofs to ensure the privacy of salary disbursements and related data while maintaining verifiability and transparency. That aims to provide a solution for private salary payments.",
+  "proposedName": "zkPayroll",
   "source": {
-    "shasum": "GYxSgKK1kV0o8p7esJJZpkOKa3c3cqgKf1F6gaqG/pk=",
+    "shasum": "pbZrz3mKPl4pw/vBrfmSE0SJZliCSWaKTBEqsNidTog=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
         "iconPath": "images/icon.svg",
-        "packageName": "snap-eth-zip",
+        "packageName": "snap-zk-payroll",
         "registry": "https://registry.npmjs.org/"
       }
     }
