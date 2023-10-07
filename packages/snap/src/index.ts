@@ -14,6 +14,7 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
       let items = params.items
       let all = params.allAmount
       let amount = params.amount
+      let reward = params.reward || "Experimental"
       return snap.request({
         method: 'snap_dialog',
         params: {
@@ -25,6 +26,7 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
             text(`Amount: **${amount} ${token}**`),
             text(`Platform Fee: **${fee} ${token}**`),
             text(`Items: **${items}**`),
+            text(`XLD token reward: **${reward}**`),
             divider(),
             text(`TotalAmount to Pay: **${all} ${token}**`),
           ]),

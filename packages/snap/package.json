@@ -1,6 +1,6 @@
 {
   "name": "snap-zk-payroll",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "zkPayroll utilizes zero-knowledge proofs to ensure the privacy of salary disbursements and related data while maintaining verifiability and transparency. That aims to provide a solution for private salary payments.",
   "license": "(MIT-0 OR Apache-2.0)",
   "main": "src/index.ts",
